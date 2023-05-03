@@ -19,30 +19,29 @@ namespace BusinessLayer.Concrete
             _categorydal = categorydal;
         }
 
-        public void DeleteCategory(Category p)
-        {
-            _categorydal.Delete(p);
-        }
-
-        public Category GetByID(int id)
-        {
-           return _categorydal.Get(x=>x.CategoryID == id);
-        }
-
-        public List<Category> GetList()
+        public List<Category> TGetList()
         {
             return _categorydal.GetList();  
         }
 
-        public void InsertCategory(Category p)
+        public void TDelete(Category t)
         {
-            _categorydal.Insert(p);
+            _categorydal.Delete(t);
         }
 
-        public void UpdateCategory(Category P)
+        public Category TGetByID(int id)
         {
-            _categorydal.Update(P);
-            
+            return _categorydal.GetByID(id);
+        }
+
+        public void TInsert(Category t)
+        {
+            _categorydal.Insert(t);
+        }
+
+        public void TUpdate(Category t)
+        {
+            _categorydal.Update(t);
         }
     }
 }

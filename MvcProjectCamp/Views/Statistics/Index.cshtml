@@ -1,0 +1,70 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2 class="container">İstatistikler</h2>
+
+    <div class="small-box bg-danger justify-content-center" style="width:200px">
+        <div class="inner">
+            <h3>@Html.ViewBag.totalcategory</h3>
+
+            <p>Toplam kategori</p>
+        </div>
+        <div class="icon">
+            <i class="fas fa-chart-pie"></i>
+        </div>
+
+    </div>
+
+    <div class="small-box bg-info justify-content-center" style="width:200px">
+        <div class="inner">
+            <h3>@Html.ViewBag.Sinema</h3>
+
+            <p>Sinema kategorisindeki başlık sayısı</p>
+        </div>
+        <div class="icon">
+            <i class="fas fa-chart-pie"></i>
+        </div>
+
+    </div>
+
+
+    <div class="small-box bg-success justify-content-center " style="width:200px">
+        <div class="inner">
+            <h3>@Html.ViewBag.WriternameA</h3>
+
+            <p>Adında "a" harfi geçen yazar sayısı</p>
+        </div>
+        <div class="icon">
+            <i class="fas fa-chart-pie"></i>
+        </div>
+
+    </div>
+
+    <div class="small-box bg-primary justify-content-center" style="width:200px">
+        <div class="inner">
+            <h3>@Html.ViewBag.MaxHeaderCategory</h3>
+
+            <p>En Fazla Başlığa Sahip Kategori</p>
+        </div>
+        <div class="icon">
+            <i class="fas fa-chart-pie"></i>
+        </div>
+
+    </div>
+
+    <div class="small-box bg-warning justify-content-center" style="width:200px">
+        <div class="inner">
+            <h3>@Html.ViewBag.differencetruefalse</h3>
+
+            <p> Kategoriler içinde True ile False olanların farkı</p>
+        </div>
+        <div class="icon">
+            <i class="fas fa-chart-pie"></i>
+        </div>
+
+    </div>
+
+

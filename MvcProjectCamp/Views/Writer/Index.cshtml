@@ -1,0 +1,68 @@
+﻿@model List<EntityLayer.Concrete.Writer>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<!DOCTYPE html>
+<html>
+
+<body class="hold-transition sidebar-mini">
+
+            <!-- Main content -->
+            <section class="content">
+
+                <!-- Default box -->
+                <br />
+                <br />
+                <div class="card card-solid">
+                    <div class="card-body pb-0">
+                        <div class="row d-flex align-content-between">
+                            @foreach(var item in Model) 
+                            { 
+                            <div class="col-12 col-sm-6 col-md-3 d-flex align-items-stretch">
+                                <div class="card bg-light">
+                                    <div class="card-header text-muted border-bottom-0">
+                                        @item.WriterTitle
+                                    </div>
+                                    <div class="card-body pt-0">
+                                        <div class="row">
+                                            <div class="col-7">
+                                                <h2 class="lead"><b>@item.WriterName  @item.WriterSurname</b></h2>
+                                                
+                                                <ul class="ml-4 mb-0 fa-ul text-muted">
+                                                    <li class="small"><span class="fa-li"><i class="fas fa-lg fa-mail-bulk"></i></span>Mail:@item.WriterMail</li>
+                                                   
+                                                </ul>
+                                            </div>
+                                            <div class="col-5 text-center">
+                                                <img src="@item.WriterImage" alt="" class="img-circle img-fluid">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="card-footer">
+                                        <div class="text-right">
+                                            <a href="/Writer/UpdateWriter/@item.WriterID" class="btn btn-sm bg-teal">
+                                                <i class="fas fa-user-edit">Düzenle</i>
+                                            </a>
+                                            <a href="#" class="btn btn-sm btn-primary">
+                                                <i class="fas fa-comment-alt"></i> Başlıklarını Gör
+                                            </a>
+                                            <a href="/Writer/DeleteWriter/@item.WriterID" class="btn btn-sm btn-danger">
+                                                <i class="fas fa-trash-alt"></i></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            }
+                          
+                        </div>
+                    </div>
+               
+                </div>
+    
+                <a href="/Writer/AddWriter" class="btn btn-primary">Yeni Yazar Ekle</a>
+            </section>
+
+</body>
+</html>
+

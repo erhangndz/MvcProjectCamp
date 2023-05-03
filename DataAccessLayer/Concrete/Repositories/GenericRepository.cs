@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
+using System.Data.Entity.Migrations;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Text;
@@ -30,6 +31,12 @@ namespace DataAccessLayer.Concrete.Repositories
             return _t.SingleOrDefault(filter);
         }
 
+        public T GetByID(int id)
+        {
+            var c= new Context();
+            return c.Set<T>().Find(id);
+        }
+
         public List<T> GetList()
         {
            return _t.ToList();
@@ -48,7 +55,7 @@ namespace DataAccessLayer.Concrete.Repositories
 
         public void Update(T t)
         {
-            
+            _t.AddOrUpdate(t);
             c.SaveChanges();
         }
     }

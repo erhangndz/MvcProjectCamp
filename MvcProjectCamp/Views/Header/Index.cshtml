@@ -1,0 +1,34 @@
+﻿@model List<EntityLayer.Concrete.Header>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<br /><br />
+<h3 class="container">Başlıklar</h3>
+<table class="table table-striped container">
+    <tr>
+        <th>#</th>
+        <th>Başlık</th>
+        <th>Kategori</th>
+        <th>Yazar</th>
+        <th>Sil</th>
+        <th>Güncelle</th>
+    </tr>
+    @foreach(var item in Model)
+            {
+                <tr>
+                    <td>@item.HeaderID</td>
+                    <td>@item.HeaderName</td>
+                    <td>@item.Category.CategoryName</td>
+                    <td>@item.Writer.WriterName @item.Writer.WriterSurname</td>
+                    <td><a href="/Header/DeleteHeader/@item.HeaderID" class="btn btn-outline-danger">Sil</a></td>
+                    <td><a href="/Header/UpdateHeader/@item.HeaderID" class="btn btn-outline-success">Güncelle</a></td>
+                </tr>
+            }
+
+
+</table>
+<div class="container">
+    <a href="/Header/AddHeader" class="btn btn-outline-info">Yeni Başlık Girişi</a>
+
+</div>

@@ -1,0 +1,42 @@
+﻿@model EntityLayer.Concrete.Writer
+@{
+    ViewBag.Title = "AddWriter";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<br />
+<h1 class="container"> Yeni Yazar Ekleme Sayfası</h1>
+<br />
+<form method="post">
+    <div class="container">
+
+        <label>Yazar Adı</label>
+        @Html.TextBoxFor(x => x.WriterName, new { @class = "form-control" })
+        <p style="color:red">@Html.ValidationMessageFor(x => x.WriterName) </p>
+        <br />
+        <label>Yazar Soyadı</label>
+        @Html.TextBoxFor(x => x.WriterSurname, new { @class = "form-control" })
+        <p style="color:red">@Html.ValidationMessageFor(x => x.WriterSurname) </p>
+
+        <br />
+        <label>Yazar Unvanı</label>
+        @Html.TextBoxFor(x => x.WriterTitle, new { @class = "form-control" })
+        <p style="color:red">@Html.ValidationMessageFor(x => x.WriterTitle) </p>
+        <br />
+        <label>Resim URL</label>
+        @Html.TextBoxFor(x => x.WriterImage, new { @class = "form-control", @type = "url" })
+        <br />
+        <label>E-Mail</label>
+        @Html.TextBoxFor(x => x.WriterMail, new { @class = "form-control", @type = "email" })
+        <br />
+        <label>Şifre</label>
+        @Html.TextBoxFor(x => x.WriterPassword, new { @class = "form-control", @type = "password" })
+        <br />
+
+
+        <button class="btn btn-outline-primary">Kaydet</button>
+    </div>
+
+
+
+</form>

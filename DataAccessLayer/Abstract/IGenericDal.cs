@@ -16,6 +16,7 @@ namespace DataAccessLayer.Abstract
         void Insert(T t);
         void Update(T t);
         void Delete(T t);
+       T GetByID(int id);
 
         List<T> ListByExpression(Expression<Func<T, bool>> filter);
     }

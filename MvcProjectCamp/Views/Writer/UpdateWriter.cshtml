@@ -1,0 +1,34 @@
+﻿@model EntityLayer.Concrete.Writer
+@{
+    ViewBag.Title = "UpdateWriter";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h3 class="container">Yazar Güncelleme Sayfası</h3>
+<form class="container" method="post">
+    @Html.HiddenFor(x => x.WriterID)
+    <label>Ad</label>
+    @Html.TextBoxFor(x => x.WriterName, new { @class = "form-control" })
+
+    <p style="color:red">@Html.ValidationMessageFor(x => x.WriterName) </p>
+    <br />
+    <label>Soyad</label>
+    @Html.TextBoxFor(x => x.WriterSurname, new { @class = "form-control" })
+    <p style="color:red">@Html.ValidationMessageFor(x => x.WriterSurname) </p>
+    <br />
+    <label>Yazar Unvanı</label>
+    @Html.TextBoxFor(x => x.WriterTitle, new { @class = "form-control" })
+    <p style="color:red">@Html.ValidationMessageFor(x => x.WriterTitle) </p>
+    <br />
+    <label>Resim URL</label>
+    @Html.TextBoxFor(x => x.WriterImage, new { @class = "form-control" })
+    <br />
+    <label>E-Mail</label>
+    @Html.TextBoxFor(x => x.WriterMail, new { @class = "form-control" })
+    <br />
+    <label>Şifre</label>
+    @Html.TextBoxFor(x => x.WriterPassword, new { @class = "form-control" })
+    <br />
+    <button class="btn btn-outline-success">Güncelle</button>
+</form>
+

@@ -7,9 +7,16 @@ using System.Threading.Tasks;
 
 namespace BusinessLayer.Abstract
 {
-    public interface ICategoryService:IGenericService<Category>
+    public interface IGenericService<T> where T : class
     {
-       
-        
+        List<T> TGetList();
+
+        void TInsert(T t);
+
+        T TGetByID(int id);
+
+        void TDelete(T t);
+
+        void TUpdate(T t);
     }
 }
