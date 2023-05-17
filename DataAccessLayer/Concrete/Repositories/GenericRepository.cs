@@ -44,7 +44,7 @@ namespace DataAccessLayer.Concrete.Repositories
 
         public void Insert(T t)
         {
-            _t.Add(t);
+            c.Set<T>().Add(t);
             c.SaveChanges();
         }
 
@@ -55,7 +55,7 @@ namespace DataAccessLayer.Concrete.Repositories
 
         public void Update(T t)
         {
-            _t.AddOrUpdate(t);
+           
             c.SaveChanges();
         }
     }
