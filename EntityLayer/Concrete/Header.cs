@@ -13,6 +13,7 @@ namespace EntityLayer.Concrete
         public int HeaderID { get; set; }
 
         public string HeaderName { get; set; }
+        public bool HeaderStatus { get; set; }
      
         public DateTime HeaderDate { get; set; }
 

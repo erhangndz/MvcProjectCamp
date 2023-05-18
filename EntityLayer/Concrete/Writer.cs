@@ -15,6 +15,7 @@ namespace EntityLayer.Concrete
         public string WriterMail { get; set; }
         public string WriterTitle { get; set; }
         public string WriterPassword { get; set; }
+        public bool WriterStatus { get; set; }
 
         //included into
         public ICollection<Header> Headers { get; set; }

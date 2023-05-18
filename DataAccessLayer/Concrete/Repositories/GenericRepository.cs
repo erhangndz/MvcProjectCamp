@@ -55,7 +55,7 @@ namespace DataAccessLayer.Concrete.Repositories
 
         public void Update(T t)
         {
-           
+           _t.AddOrUpdate(t);
             c.SaveChanges();
         }
     }

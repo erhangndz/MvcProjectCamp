@@ -1,0 +1,21 @@
+﻿@model EntityLayer.Concrete.Header
+@{
+    ViewBag.Title = "UpdateHeader";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<br />
+<h2 >Başlık Güncelleme Sayfası</h2>
+
+<form method="post">
+
+    @Html.HiddenFor(x=>x.HeaderID)
+    <label>Başlık İsmi</label>
+    @Html.TextBoxFor(x=>x.HeaderName, new {@class="form-control"})
+    <br />
+    <label>Kategori</label>
+    @Html.DropDownListFor(x=>x.CategoryID,(List<SelectListItem>)ViewBag.category, new {@class="form-control"})
+    <br />
+    <button class="btn btn-success">Güncelle</button>
+</form>
+

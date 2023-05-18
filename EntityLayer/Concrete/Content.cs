@@ -10,6 +10,7 @@ namespace EntityLayer.Concrete
     {
         public int ContentID { get; set; }
         public string ContentText { get; set; }
+        public bool ContentStatus { get; set; }
         public DateTime ContentDate { get; set; }
 
         //related class 

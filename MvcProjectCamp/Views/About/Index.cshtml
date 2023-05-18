@@ -1,0 +1,44 @@
+﻿@model List<EntityLayer.Concrete.About>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<br /><br />
+<h2>Index</h2>
+
+<br />
+<button class="btn btn-primary" data-toggle="modal" data-target="#Modal1">Yeni Hakkımızda Yazı Girişi
+    
+    
+    
+    
+    </button>
+
+
+<div class="modal" id="Modal1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title">Hakkımızda Metin Girişi</h3>
+            </div>
+            <form method="post" action="#">
+                <div class="modal-body">
+                    <label>Açıklama 1</label>
+                    <input type="text" name="#" class="form-control" />
+                    <br />
+                    <label>Açıklama 2</label>
+                    <input type="text" name="#" class="form-control" />
+                    <br />
+                    <label>Görsel 1</label>
+                    <input type="text" name="#" class="form-control" />
+                    <br />
+                    <label>Görsel 2</label>
+                    <input type="text" name="#" class="form-control" />
+                    <br />
+                    <button class="btn btn-info">Kaydet</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
