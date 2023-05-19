@@ -1,5 +1,6 @@
 ﻿using BusinessLayer.Concrete;
 using DataAccessLayer.EntityFramework;
+using EntityLayer.Concrete;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,6 +16,23 @@ namespace MvcProjectCamp.Controllers
         {
             var values= am.TGetList();
             return View(values);
+        }
+        [HttpGet]
+        public ActionResult AddAbout()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult AddAbout(About p)
+        {
+            am.TInsert(p);
+            return RedirectToAction("Index");
+        }
+
+        public PartialViewResult AboutPartial()
+        {
+            return PartialView();
         }
     }
 }

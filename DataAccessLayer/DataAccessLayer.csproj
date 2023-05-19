@@ -86,6 +86,10 @@
     <Compile Include="Migrations\202305181535387_add_headerstatus.designer.cs">
       <DependentUpon>202305181535387_add_headerstatus.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202305191351532_add_message_table.cs" />
+    <Compile Include="Migrations\202305191351532_add_message_table.designer.cs">
+      <DependentUpon>202305191351532_add_message_table.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -114,6 +118,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202305181535387_add_headerstatus.resx">
       <DependentUpon>202305181535387_add_headerstatus.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202305191351532_add_message_table.resx">
+      <DependentUpon>202305191351532_add_message_table.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

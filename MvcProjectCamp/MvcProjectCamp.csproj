@@ -140,6 +140,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AboutController.cs" />
     <Compile Include="Controllers\AdminCategoryController.cs" />
+    <Compile Include="Controllers\ContactController.cs" />
     <Compile Include="Controllers\ContentController.cs" />
     <Compile Include="Controllers\HeaderController.cs" />
     <Compile Include="Controllers\StatisticsController.cs" />
@@ -2306,6 +2307,10 @@
     <Content Include="Views\Content\GetContent.cshtml" />
     <Content Include="Views\Header\UpdateHeader.cshtml" />
     <Content Include="Views\About\Index.cshtml" />
+    <Content Include="Views\About\AboutPartial.cshtml" />
+    <Content Include="Views\Contact\Index.cshtml" />
+    <Content Include="Views\Contact\GetMessageDetails.cshtml" />
+    <Content Include="Views\Contact\InboxPartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

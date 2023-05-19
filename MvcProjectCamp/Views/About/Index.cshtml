@@ -2,43 +2,43 @@
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    string status = "";
+    string buttonname = "";
+    string buttoncolor = "";
 }
 
 <br /><br />
-<h2>Index</h2>
+<h2>Hakkımızda Listesi</h2>
+<table class="table table-striped">
+    <tr>
+        <th>#</th>
+        <th>Açıklama 1</th>
+        <th>Açıklama 2</th>
+        <th>Görsel 1</th>
+        <th>Görsel 2</th>
+        <th>Düzenle</th>
+        <th>İşlem</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+      
+                <tr>
+                    <td>@item.AboutID</td>
+                    <td>@item.AboutDetails1</td>
+                    <td>@item.AboutDetails2</td>
+                    <td>@item.AboutImageURL1</td>
+                    <td>@item.AboutImageURL2</td>
+                    <td><a href="/About/UpdateAbout" class="btn btn-info">Düzenle</a></td>
+                    <td><a href="/About/UpdateAbout" class="btn btn-success">Aktif Yap</a></td>
+                </tr>
+            }
+
+
+</table>
 
 <br />
-<button class="btn btn-primary" data-toggle="modal" data-target="#Modal1">Yeni Hakkımızda Yazı Girişi
-    
-    
-    
-    
-    </button>
+<button class="btn btn-primary" data-toggle="modal" data-target="#Modal1">Yeni Giriş</button>
+
+@Html.Action("AboutPartial")
 
 
-<div class="modal" id="Modal1">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h3 class="modal-title">Hakkımızda Metin Girişi</h3>
-            </div>
-            <form method="post" action="#">
-                <div class="modal-body">
-                    <label>Açıklama 1</label>
-                    <input type="text" name="#" class="form-control" />
-                    <br />
-                    <label>Açıklama 2</label>
-                    <input type="text" name="#" class="form-control" />
-                    <br />
-                    <label>Görsel 1</label>
-                    <input type="text" name="#" class="form-control" />
-                    <br />
-                    <label>Görsel 2</label>
-                    <input type="text" name="#" class="form-control" />
-                    <br />
-                    <button class="btn btn-info">Kaydet</button>
-                </div>
-            </form>
-        </div>
-    </div>
-</div>
