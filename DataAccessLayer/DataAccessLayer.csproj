@@ -55,8 +55,10 @@
     <Compile Include="Abstract\ICategoryDal.cs" />
     <Compile Include="Abstract\IContactDal.cs" />
     <Compile Include="Abstract\IContentDal.cs" />
+    <Compile Include="Abstract\IDraftDal.cs" />
     <Compile Include="Abstract\IGenericDal.cs" />
     <Compile Include="Abstract\IHeaderDal.cs" />
+    <Compile Include="Abstract\IMessageDal.cs" />
     <Compile Include="Abstract\IWriterDal.cs" />
     <Compile Include="Concrete\Context.cs" />
     <Compile Include="Concrete\Repositories\GenericRepository.cs" />
@@ -64,7 +66,9 @@
     <Compile Include="EntityFramework\EfCategoryDal.cs" />
     <Compile Include="EntityFramework\EfContactDal.cs" />
     <Compile Include="EntityFramework\EfContentDal.cs" />
+    <Compile Include="EntityFramework\EfDraftDal.cs" />
     <Compile Include="EntityFramework\EfHeaderDal.cs" />
+    <Compile Include="EntityFramework\EfMessageDal.cs" />
     <Compile Include="EntityFramework\EfWriterDal.cs" />
     <Compile Include="Migrations\202304201726300_mig1.cs" />
     <Compile Include="Migrations\202304201726300_mig1.designer.cs">
@@ -89,6 +93,14 @@
     <Compile Include="Migrations\202305191351532_add_message_table.cs" />
     <Compile Include="Migrations\202305191351532_add_message_table.designer.cs">
       <DependentUpon>202305191351532_add_message_table.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202305200817308_add_draft_table.cs" />
+    <Compile Include="Migrations\202305200817308_add_draft_table.designer.cs">
+      <DependentUpon>202305200817308_add_draft_table.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202305200955404_datetime.cs" />
+    <Compile Include="Migrations\202305200955404_datetime.designer.cs">
+      <DependentUpon>202305200955404_datetime.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -121,6 +133,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202305191351532_add_message_table.resx">
       <DependentUpon>202305191351532_add_message_table.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202305200817308_add_draft_table.resx">
+      <DependentUpon>202305200817308_add_draft_table.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202305200955404_datetime.resx">
+      <DependentUpon>202305200955404_datetime.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

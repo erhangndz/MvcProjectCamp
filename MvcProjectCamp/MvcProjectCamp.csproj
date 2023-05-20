@@ -142,7 +142,9 @@
     <Compile Include="Controllers\AdminCategoryController.cs" />
     <Compile Include="Controllers\ContactController.cs" />
     <Compile Include="Controllers\ContentController.cs" />
+    <Compile Include="Controllers\ErrorPageController.cs" />
     <Compile Include="Controllers\HeaderController.cs" />
+    <Compile Include="Controllers\MessageController.cs" />
     <Compile Include="Controllers\StatisticsController.cs" />
     <Compile Include="Controllers\WriterController.cs" />
     <Compile Include="Global.asax.cs">
@@ -2007,6 +2009,11 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\bootstrap.rtl.css" />
     <Content Include="Content\bootstrap.rtl.min.css" />
+    <Content Include="1errorpage\css\font-awesome.css" />
+    <Content Include="1errorpage\css\style.css" />
+    <Content Include="1errorpage\images\bg.jpg" />
+    <Content Include="1errorpage\index.html" />
+    <Content Include="1errorpage\w3layouts-License.txt" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
@@ -2272,6 +2279,11 @@
     <Content Include="AdminLTE\plugins\sweetalert2-theme-bootstrap-4\bootstrap-4.scss" />
     <Content Include="AdminLTE\plugins\toastr\toastr.js.map" />
     <Content Include="AdminLTE\README.md" />
+    <Content Include="1errorpage\fonts\fontawesome-webfont.eot" />
+    <Content Include="1errorpage\fonts\fontawesome-webfont.ttf" />
+    <Content Include="1errorpage\fonts\fontawesome-webfont.woff" />
+    <Content Include="1errorpage\fonts\fontawesome-webfont.woff2" />
+    <Content Include="1errorpage\fonts\FontAwesome.otf" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -2311,6 +2323,12 @@
     <Content Include="Views\Contact\Index.cshtml" />
     <Content Include="Views\Contact\GetMessageDetails.cshtml" />
     <Content Include="Views\Contact\InboxPartial.cshtml" />
+    <Content Include="Views\Message\Inbox.cshtml" />
+    <Content Include="Views\Message\Sentbox.cshtml" />
+    <Content Include="Views\Message\NewMessage.cshtml" />
+    <Content Include="Views\Message\GetInboxDetails.cshtml" />
+    <Content Include="Views\Message\GetSentBoxDetails.cshtml" />
+    <Content Include="Views\ErrorPage\Page404.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -1,17 +1,19 @@
-﻿@model List<EntityLayer.Concrete.Contact>
+﻿@model List<EntityLayer.Concrete.Message>
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Inbox";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
-<br /><br />
+
+<br />
+<br />
 <section class="content">
     <div class="row">
-        @Html.Action("InboxPartial")
+        @Html.Action("InboxPartial", "Contact")
         <!-- /.col -->
         <div class="col-md-9">
             <div class="card card-primary card-outline">
                 <div class="card-header">
-                    <h3 class="card-title">İletişim</h3>
+                    <h3 class="card-title">Gönderilen Mesajlar</h3>
 
                     <div class="card-tools">
                         <div class="input-group input-group-sm">
@@ -54,21 +56,21 @@
                             <tbody>
                                 @foreach (var item in Model)
                                 {
-                                <tr>
-                                    <td>
-                                        <div class="icheck-primary">
-                                            <input type="checkbox" value="" id="check1">
-                                            <label for="check1"></label>
-                                        </div>
-                                    </td>
-                                   
-                                    <td class="mailbox-name"><a href="/Contact/GetMessageDetails/@item.ContactID">@item.UserName</a></td>
-                                    <td class="mailbox-subject">
-                                        <b>@item.Subject</b> - @item.Message.Substring(0,25) ...
-                                    </td>
-                                    <td class="mailbox-attachment"></td>
-                                    <td class="mailbox-date"> @(((DateTime)item.Date).ToString("dd-MMM-yyyy"))</td>
-                                </tr>
+                                    <tr>
+                                        <td>
+                                            <div class="icheck-primary">
+                                                <input type="checkbox" value="" id="check1">
+                                                <label for="check1"></label>
+                                            </div>
+                                        </td>
+
+                                        <td class="mailbox-name"><a href="/Message/GetSentBoxDetails/@item.MessageID">Alıcı: @item.Receiver</a></td>
+                                        <td class="mailbox-subject">
+                                            <b>@item.Subject</b> - @item.Content.Substring(0, 25) ...
+                                        </td>
+                                        <td class="mailbox-attachment"></td>
+                                        <td class="mailbox-date"> @(((DateTime)item.Date).ToString("dd-MMM-yyyy"))</td>
+                                    </tr>
                                 }
                             </tbody>
                         </table>
