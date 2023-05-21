@@ -13,15 +13,18 @@ namespace MvcProjectCamp.Controllers
     {
         HeaderManager hm = new HeaderManager(new EfHeaderDal());
         CategoryManager cm = new CategoryManager(new EfCategoryDal());
+        WriterManager wm = new WriterManager(new EfWriterDal());
         public ActionResult WriterProfile()
         {
             return View();
         }
 
-        public ActionResult MyHeaders() 
+        public ActionResult MyHeaders(string p) 
         {
-           
-            var values= hm.TGetList().Where(x=>x.WriterID==4 && x.HeaderStatus==true).ToList();
+
+            p = (string)Session["WriterMail"];
+            var writeridinfo = wm.TGetList().Where(x => x.WriterMail == p).Select(x => x.WriterID).FirstOrDefault();
+            var values = hm.TGetList().Where(x => x.WriterID == writeridinfo).ToList();
             return View(values);
         }
         [HttpGet]

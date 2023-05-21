@@ -67,7 +67,7 @@
                                             </div>
                                         </td>
 
-                                        <@ReadStatus class="mailbox-name"><a href="/Message/GetInboxDetails/@item.MessageID">@item.Sender</a></@ReadStatus>
+                                        <@ReadStatus class="mailbox-name"><a href="/WriterPanelMessage/GetInboxDetails/@item.MessageID">@item.Sender</a></@ReadStatus>
                                         <@ReadStatus class="mailbox-subject">
                                             @item.Subject - @item.Content.Substring(0, 25) ...
                                         </@ReadStatus>
