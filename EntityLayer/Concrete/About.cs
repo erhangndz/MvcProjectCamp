@@ -13,5 +13,6 @@ namespace EntityLayer.Concrete
         public string AboutDetails2 { get; set; }
         public string AboutImageURL1 { get; set; }
         public string AboutImageURL2 { get; set; }
+        public bool AboutStatus { get; set; }
     }
 }

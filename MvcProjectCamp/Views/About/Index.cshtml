@@ -5,6 +5,7 @@
     string status = "";
     string buttonname = "";
     string buttoncolor = "";
+    string colour = "";
 }
 
 <br /><br />
@@ -16,20 +17,37 @@
         <th>Açıklama 2</th>
         <th>Görsel 1</th>
         <th>Görsel 2</th>
+        <th>Durum</th>
         <th>Düzenle</th>
         <th>İşlem</th>
     </tr>
     @foreach (var item in Model)
     {
-      
+
+        if (item.AboutStatus == false) { status = "Pasif"; }
+        if (item.AboutStatus == true) { status = "Aktif"; }
+        if (item.AboutStatus == false) { buttoncolor = "success"; }
+        if (item.AboutStatus == true) { buttoncolor = "danger"; }
+        if (item.AboutStatus == false) { buttonname = "Aktif Yap"; }
+        if (item.AboutStatus == true) { buttonname = "Pasif Yap"; }
+        if (item.AboutStatus == false) { colour = "danger"; }
+        if (item.AboutStatus == true) { colour = "success"; }
+
                 <tr>
                     <td>@item.AboutID</td>
                     <td>@item.AboutDetails1</td>
                     <td>@item.AboutDetails2</td>
                     <td>@item.AboutImageURL1</td>
                     <td>@item.AboutImageURL2</td>
-                    <td><a href="/About/UpdateAbout" class="btn btn-info">Düzenle</a></td>
-                    <td><a href="/About/UpdateAbout" class="btn btn-success">Aktif Yap</a></td>
+                    <td class="project-state">
+                        <span class="badge badge-@colour">@status</span>
+                    </td>
+                    <td><a href="/About/UpdateAbout/@item.AboutID" class="btn btn-info">
+    <i class="fas fa-pencil-alt">
+    </i>Düzenle
+</a></td>
+                    <td><a href="/About/DeleteAbout/@item.AboutID" class="btn btn-@buttoncolor"> <i class="fas fa-arrow-alt-circle-left">
+</i>@buttonname</a></td>
                 </tr>
             }
 

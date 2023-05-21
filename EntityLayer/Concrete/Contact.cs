@@ -15,5 +15,6 @@ namespace EntityLayer.Concrete
         public string UserMail { get; set; }
         public string Subject { get; set; }
         public string Message { get; set; }
+        public bool IsRead { get; set; }
     }
 }

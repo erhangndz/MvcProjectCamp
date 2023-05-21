@@ -25,15 +25,17 @@ namespace MvcProjectCamp.Controllers
         {
            
             var values= cm.TGetByID(id);
+            values.IsRead = true;
+            cm.TUpdate(values);
         return View(values);
         }
 
         public PartialViewResult InboxPartial()
         {
             
-            ViewBag.messagenumber = cm.TGetList().Count();
-            ViewBag.inboxnumber = mm.TInboxList().Count();
-            ViewBag.sentboxnumber = mm.TSentList().Count();
+            ViewBag.messagenumber = cm.TGetList().Count(x=>x.IsRead==false);
+            ViewBag.inboxnumber = mm.TInboxList().Count(x=>x.IsRead==false);
+            
             return PartialView();
         }
     }

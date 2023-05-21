@@ -12,9 +12,11 @@
 
     <title>AdminLTE 3 | Dashboard 3</title>
     <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+   
     <link href="~/Content/bootstrap.css" rel="stylesheet" />
     <!-- Font Awesome Icons -->
     <link rel="stylesheet" href="~/AdminLTE/plugins/fontawesome-free/css/all.min.css">
+
     <!-- IonIcons -->
     <link rel="stylesheet" href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
     <!-- Theme style -->
@@ -34,7 +36,7 @@ to get the desired effect
 -->
 <body class="hold-transition sidebar-mini">
     <div class="wrapper">
-       
+
         <!-- Main Sidebar Container -->
         <aside class="main-sidebar sidebar-dark-primary elevation-4">
             <!-- Brand Logo -->
@@ -60,17 +62,20 @@ to get the desired effect
                 <nav class="mt-2">
                     <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
                         <!-- Add icons to the links using the .nav-icon class
-         with font-awesome or any other icon font library -->
-                        <li class="nav-item">
-                            <a href="/AdminCategory/Index" class="nav-link">
-                                <i class="nav-icon fas fa-tachometer-alt"></i>
-                                <p>
-                                    Kategoriler
+    with font-awesome or any other icon font library -->
+                        @if (User.IsInRole("b"))
+                        {
+                            <li class="nav-item">
+                                <a href="/AdminCategory/Index" class="nav-link">
+                                    <i class="nav-icon fas fa-tachometer-alt"></i>
+                                    <p>
+                                        Kategoriler
 
-                                </p>
-                            </a>
+                                    </p>
+                                </a>
 
-                        </li>
+                            </li>
+                        }
                         <li class="nav-item">
                             <a href="/Header/Index" class="nav-link">
                                 <i class="nav-icon fas fa-th"></i>
@@ -141,15 +146,16 @@ to get the desired effect
 
                         </li>
                         <li class="nav-item has-treeview">
-                            <a href="#" class="nav-link">
-                                <i class="nav-icon fas fa-table"></i>
+                            <a href="/Skill/Index" class="nav-link">
+                                <i class="nav-icon fas fa-edit"></i>
                                 <p>
-                                    Yazılar
-                                    
+                                    Yetenek Kartım
+
                                 </p>
                             </a>
 
                         </li>
+
                         <li class="nav-header"></li>
                         <li class="nav-item">
                             <a href="pages/calendar.html" class="nav-link">
@@ -161,10 +167,10 @@ to get the desired effect
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="pages/gallery.html" class="nav-link">
+                            <a href="/Gallery/Index" class="nav-link">
                                 <i class="nav-icon far fa-image"></i>
                                 <p>
-                                    Galeri
+                                    Yazar Galerisi
                                 </p>
                             </a>
                         </li>
@@ -197,8 +203,8 @@ to get the desired effect
                             </a>
 
                         </li>
-                
-                </nav>
+
+</nav>
                 <!-- /.sidebar-menu -->
             </div>
             <!-- /.sidebar -->
@@ -206,7 +212,7 @@ to get the desired effect
 
         <!-- Content Wrapper. Contains page content -->
         <div class="content-wrapper">
-      
+
             <!-- Main content -->
             @RenderBody()
             <!-- /.content -->
@@ -218,20 +224,24 @@ to get the desired effect
         </aside>
         <!-- /.control-sidebar -->
         <!-- Main Footer -->
-        
+
     </div>
     <!-- ./wrapper -->
     <!-- REQUIRED SCRIPTS -->
     <!-- jQuery -->
-    @*<script src="~/AdminLTE/plugins/jquery/jquery.min.js"></script>*@
+    <script src="~/AdminLTE/plugins/jquery/jquery.min.js"></script>
     <!-- Bootstrap -->
-    <script src="~/AdminLTE/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="~/AdminLTE/plugins/bootstrap/js/bootstrap.bundle.min.js"></script> 
     <!-- AdminLTE -->
     <script src="~/AdminLTE/dist/js/adminlte.js"></script>
-
+    <script src="~/AdminLTE/plugins/jquery/jquery.min.js"></script>
+    
+    
     <!-- OPTIONAL SCRIPTS -->
     <script src="~/AdminLTE/plugins/chart.js/Chart.min.js"></script>
     <script src="~/AdminLTE/dist/js/demo.js"></script>
     <script src="~/AdminLTE/dist/js/pages/dashboard3.js"></script>
+   
+    
 </body>
 </html>

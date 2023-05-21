@@ -2,6 +2,7 @@
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    string ReadStatus = "";
 }
 <br /><br />
 <section class="content">
@@ -54,6 +55,7 @@
                             <tbody>
                                 @foreach (var item in Model)
                                 {
+                                    if (item.IsRead == false) { ReadStatus = "th"; } else { ReadStatus = "td"; }
                                 <tr>
                                     <td>
                                         <div class="icheck-primary">
@@ -62,12 +64,12 @@
                                         </div>
                                     </td>
                                    
-                                    <td class="mailbox-name"><a href="/Contact/GetMessageDetails/@item.ContactID">@item.UserName</a></td>
-                                    <td class="mailbox-subject">
-                                        <b>@item.Subject</b> - @item.Message.Substring(0,25) ...
-                                    </td>
-                                    <td class="mailbox-attachment"></td>
-                                    <td class="mailbox-date"> @(((DateTime)item.Date).ToString("dd-MMM-yyyy"))</td>
+                                    <@ReadStatus class="mailbox-name"><a href="/Contact/GetMessageDetails/@item.ContactID">@item.UserName</a></@ReadStatus>
+                                    <@ReadStatus class="mailbox-subject">
+                                        @item.Subject - @item.Message.Substring(0,25) ...
+                                    </@ReadStatus>
+                                    <@ReadStatus class="mailbox-attachment"></@ReadStatus>
+                                    <@ReadStatus class="mailbox-date"> @(((DateTime)item.Date).ToString("dd-MMM-yyyy"))</@ReadStatus>
                                 </tr>
                                 }
                             </tbody>

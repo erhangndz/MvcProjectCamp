@@ -1,0 +1,78 @@
+﻿@model List<EntityLayer.Concrete.Writer>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+ 
+    <!-- Ekko Lightbox -->
+    <link rel="stylesheet" href="~/AdminLTE/plugins/ekko-lightbox/ekko-lightbox.css">
+   
+ 
+</head>
+<body class="hold-transition sidebar-mini">
+    <br /><br />
+    <section class="content">
+        <div class="container-fluid">
+            <div class="row">
+
+                <div class="col-12">
+                    <div class="card card-primary">
+                        <div class="card-header">
+                            <div class="card-title">
+                                Yazarlarımız
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <div class="row">
+
+                                @foreach (var item in Model)
+                                {
+                                    <div class="col-sm-2">
+                                        <a href="@item.WriterImage" data-toggle="lightbox" data-title="@item.WriterName @item.WriterSurname    " data-gallery="gallery">
+                                            <img src="@item.WriterImage" class="img-fluid mb-2" alt="white sample" />
+                                        </a>
+                                    </div>
+                                }
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div><!-- /.container-fluid -->
+    </section>
+
+    <!-- jQuery -->
+    <!-- Bootstrap -->
+    <!-- jQuery UI -->
+    <script src="~/AdminLTE/plugins/jquery-ui/jquery-ui.min.js"></script>
+    <!-- Ekko Lightbox -->
+    <script src="~/AdminLTE/plugins/ekko-lightbox/ekko-lightbox.min.js"></script>
+    <!-- AdminLTE App -->
+    <script src="~/AdminLTE/plugins/ekko-lightbox/ekko-lightbox.js"></script>
+    <script src="~/AdminLTE/dist/js/adminlte.min.js"></script>
+    <!-- AdminLTE for demo purposes -->
+    <!-- Filterizr-->
+    <script src="~/AdminLTE/plugins/filterizr/jquery.filterizr.min.js"></script>
+    <!-- Page specific script -->
+    <script>
+        jquery(function () {
+            jquery(document).on('click', '[data-toggle="lightbox"]', function (event) {
+                event.preventDefault();
+                jquery(this).ekkoLightbox({
+                    alwaysShowClose: true
+                });
+            });
+
+            jquery('.filter-container').filterizr({ gutterPixels: 3 });
+            jquery('.btn[data-filter]').on('click', function () {
+                jquery('.btn[data-filter]').removeClass('active');
+                jquery(this).addClass('active');
+            });
+        })
+    </script>
+</body>
+</html>

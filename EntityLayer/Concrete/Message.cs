@@ -17,5 +17,6 @@ namespace EntityLayer.Concrete
         public DateTime Date  { get; set; }
         public string Sender { get; set; }
         public string Receiver { get; set; }
+        public bool IsRead { get; set; }
     }
 }

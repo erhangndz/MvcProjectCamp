@@ -34,5 +34,27 @@ namespace MvcProjectCamp.Controllers
         {
             return PartialView();
         }
+
+        public ActionResult DeleteAbout(int id)
+        {
+            var values= am.TGetByID(id);
+            if (values.AboutStatus == true)
+            {
+                values.AboutStatus = false;
+                am.TUpdate(values);
+              
+            }
+            else if(values.AboutStatus == false)
+            {
+
+                values.AboutStatus = true;
+                am.TUpdate(values);
+               
+            }
+            return RedirectToAction("Index");
+
+        }
+
+        
     }
 }

@@ -16,15 +16,16 @@ namespace MvcProjectCamp.Controllers
     {
         MessageManager mm=new MessageManager(new EfMessageDal());
         MessageValidator messagevalidator = new MessageValidator();
+        [Authorize]
         public ActionResult Inbox()
         {
-            var values= mm.TInboxList();
+            var values= mm.TInboxList().OrderByDescending(x=>x.MessageID).ToList();
             return View(values);
         }
 
         public ActionResult Sentbox()
         {
-            var values = mm.TSentList();
+            var values = mm.TSentList().OrderByDescending(x=>x.MessageID).ToList();
             return View(values);
         }
         [HttpGet]
@@ -60,6 +61,8 @@ namespace MvcProjectCamp.Controllers
         {
 
             var values = mm.TGetByID(id);
+            values.IsRead= true;
+            mm.TUpdate(values);
             return View(values);
         }
         public ActionResult GetSentBoxDetails(int id)

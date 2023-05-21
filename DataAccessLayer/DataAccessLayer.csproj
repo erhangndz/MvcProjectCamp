@@ -52,6 +52,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Abstract\IAboutDal.cs" />
+    <Compile Include="Abstract\IAdminDal.cs" />
     <Compile Include="Abstract\ICategoryDal.cs" />
     <Compile Include="Abstract\IContactDal.cs" />
     <Compile Include="Abstract\IContentDal.cs" />
@@ -59,16 +60,19 @@
     <Compile Include="Abstract\IGenericDal.cs" />
     <Compile Include="Abstract\IHeaderDal.cs" />
     <Compile Include="Abstract\IMessageDal.cs" />
+    <Compile Include="Abstract\ISkillDal.cs" />
     <Compile Include="Abstract\IWriterDal.cs" />
     <Compile Include="Concrete\Context.cs" />
     <Compile Include="Concrete\Repositories\GenericRepository.cs" />
     <Compile Include="EntityFramework\EfAboutDal.cs" />
+    <Compile Include="EntityFramework\EfAdminDal.cs" />
     <Compile Include="EntityFramework\EfCategoryDal.cs" />
     <Compile Include="EntityFramework\EfContactDal.cs" />
     <Compile Include="EntityFramework\EfContentDal.cs" />
     <Compile Include="EntityFramework\EfDraftDal.cs" />
     <Compile Include="EntityFramework\EfHeaderDal.cs" />
     <Compile Include="EntityFramework\EfMessageDal.cs" />
+    <Compile Include="EntityFramework\EfSkillDal.cs" />
     <Compile Include="EntityFramework\EfWriterDal.cs" />
     <Compile Include="Migrations\202304201726300_mig1.cs" />
     <Compile Include="Migrations\202304201726300_mig1.designer.cs">
@@ -101,6 +105,22 @@
     <Compile Include="Migrations\202305200955404_datetime.cs" />
     <Compile Include="Migrations\202305200955404_datetime.designer.cs">
       <DependentUpon>202305200955404_datetime.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202305210712581_add_admin.cs" />
+    <Compile Include="Migrations\202305210712581_add_admin.designer.cs">
+      <DependentUpon>202305210712581_add_admin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202305211020144_add_aboutstatus.cs" />
+    <Compile Include="Migrations\202305211020144_add_aboutstatus.designer.cs">
+      <DependentUpon>202305211020144_add_aboutstatus.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202305211050062_add_skill_table.cs" />
+    <Compile Include="Migrations\202305211050062_add_skill_table.designer.cs">
+      <DependentUpon>202305211050062_add_skill_table.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202305211212389_isread_added_to_messages_and_contacts.cs" />
+    <Compile Include="Migrations\202305211212389_isread_added_to_messages_and_contacts.designer.cs">
+      <DependentUpon>202305211212389_isread_added_to_messages_and_contacts.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -139,6 +159,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202305200955404_datetime.resx">
       <DependentUpon>202305200955404_datetime.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202305210712581_add_admin.resx">
+      <DependentUpon>202305210712581_add_admin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202305211020144_add_aboutstatus.resx">
+      <DependentUpon>202305211020144_add_aboutstatus.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202305211050062_add_skill_table.resx">
+      <DependentUpon>202305211050062_add_skill_table.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202305211212389_isread_added_to_messages_and_contacts.resx">
+      <DependentUpon>202305211212389_isread_added_to_messages_and_contacts.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

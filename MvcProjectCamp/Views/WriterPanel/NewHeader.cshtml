@@ -1,0 +1,31 @@
+﻿@model EntityLayer.Concrete.Header
+@{
+    ViewBag.Title = "NewHeader";
+    Layout = "~/Views/Shared/_WriterLayout.cshtml";
+}
+
+
+<br />
+<h1 class="container"> Yeni Başlık Ekleme Sayfası</h1>
+<br />
+<form method="post">
+    <div class="container">
+
+        <label>Başlık</label>
+        @Html.TextBoxFor(x => x.HeaderName, new { @class = "form-control" })
+
+        <br />
+        <label>Kategori</label>
+        @Html.DropDownListFor(x => x.CategoryID, (List<SelectListItem>)ViewBag.category, new { @class = "form-control" })
+
+
+        
+
+        <br />
+        <button class="btn btn-outline-primary">Kaydet</button>
+    </div>
+
+
+
+</form>
+
