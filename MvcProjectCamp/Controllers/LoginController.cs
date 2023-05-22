@@ -13,6 +13,7 @@ using reCaptcha.Extensions;
 
 namespace MvcProjectCamp.Controllers
 {
+    [AllowAnonymous]
     public class LoginController : Controller
     {
         AdminManager am = new AdminManager(new EfAdminDal());

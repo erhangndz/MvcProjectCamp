@@ -1,8 +1,5 @@
 ﻿@model List<EntityLayer.Concrete.Content>
-@{
-    ViewBag.Title = "MyContent";
-    Layout = "~/Views/Shared/_WriterLayout.cshtml";
-}
+<h2>Index</h2>
 
 <html>
 
@@ -22,14 +19,14 @@
                             <div class="timeline">
                                 <!-- timeline time label -->
                                 <div class="time-label">
-                                    <span class="bg-success">@item.ContentDate.ToShortDateString()</span>
+                                    <span class="bg-dark">@item.ContentDate.ToShortDateString()</span>
                                 </div>
                                 <!-- /.timeline-label -->
                                 <!-- timeline item -->
                                 <div>
                                     <i class="fas fa-comment bg-yellow"></i>
                                     <div class="timeline-item">
-                                        <h3 class="timeline-header"><a href="#">@item.Header.HeaderName</a> </h3>
+                                        <h3 class="timeline-header"><a href="#">@item.Writer.WriterName @item.Writer.WriterSurname</a> </h3>
                                         <div class="timeline-body">
                                             @item.ContentText
                                         </div>
@@ -38,10 +35,7 @@
                                 <!-- END timeline item -->
                             </div>
                         }
-                    <div class="time-label">
-                        
-                        <a href="/WriterPanelContent/AddContent" class="btn btn-outline-primary "><i class="fas fa-plus-circle "></i></a>
-                    </div>
+                     
                     </div>
                     <!-- /.col -->
                 </div>
@@ -54,4 +48,3 @@
 </body>
 
 </html>
-

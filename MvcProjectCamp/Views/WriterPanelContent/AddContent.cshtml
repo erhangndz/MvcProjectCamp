@@ -1,0 +1,18 @@
+﻿@model EntityLayer.Concrete.Content
+@{
+    ViewBag.Title = "AddContent";
+    Layout = "~/Views/Shared/_WriterLayout.cshtml";
+}
+
+<h3 class="container">Yeni Kategori Ekleme Sayfası</h3>
+<form class="container" method="post">
+    <label>Yazı İçeriği</label>
+    @Html.TextAreaFor(x => x.ContentText, new { @class = "form-control" })
+    <br />
+    <label>Başlık Seç</label>
+    @Html.DropDownListFor(x => x.HeaderID, (List<SelectListItem>)ViewBag.header, new { @class = "form-control" })
+    <br />
+    <button class="btn btn-outline-info">İçerik Ekle</button>
+</form>
+
+

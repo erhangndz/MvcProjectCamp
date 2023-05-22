@@ -1,4 +1,4 @@
-﻿using BusinessLayer.Concrete;
+﻿    using BusinessLayer.Concrete;
 using DataAccessLayer.EntityFramework;
 using EntityLayer.Concrete;
 using System;
@@ -42,8 +42,10 @@ namespace MvcProjectCamp.Controllers
         [HttpPost]
         public ActionResult NewHeader(Header p)
         {
+            string y = (string)Session["WriterMail"];
+            var writeridinfo = wm.TGetList().Where(x => x.WriterMail == y).Select(x => x.WriterID).FirstOrDefault();
             p.HeaderDate = DateTime.Parse((DateTime.Now.ToShortDateString()));
-            p.WriterID = 4;
+            p.WriterID = writeridinfo;
             p.HeaderStatus = true;
             hm.TInsert(p);
             return RedirectToAction("MyHeaders");
