@@ -8,6 +8,8 @@ using System.Web;
 using System.Web.Mvc;
 using PagedList;
 using PagedList.Mvc;
+using BusinessLayer.ValidationRules;
+using FluentValidation.Results;
 
 namespace MvcProjectCamp.Controllers
 {
@@ -16,15 +18,42 @@ namespace MvcProjectCamp.Controllers
         HeaderManager hm = new HeaderManager(new EfHeaderDal());
         CategoryManager cm = new CategoryManager(new EfCategoryDal());
         WriterManager wm = new WriterManager(new EfWriterDal());
+
+        [HttpGet]
         public ActionResult WriterProfile()
         {
+            string p = (string)Session["WriterMail"];
+            var writeridinfo = wm.TGetList().Where(x => x.WriterMail == p).Select(x => x.WriterID).FirstOrDefault();
+            var values = wm.TGetByID(writeridinfo);
+            return View(values);
+        }
+        [HttpPost]
+        public ActionResult WriterProfile(Writer p)
+        {
+            WriterValidator writervalidator = new WriterValidator();
+            ValidationResult results = writervalidator.Validate(p);
+            if (results.IsValid)
+            {
+                wm.TUpdate(p);
+                return RedirectToAction("MyHeaders");
+            }
+            else
+            {
+                foreach (var item in results.Errors)
+                {
+                    ModelState.AddModelError(item.PropertyName, item.ErrorMessage);
+                    return View();
+                }
+            }
+
+
             return View();
         }
 
-        public ActionResult MyHeaders(string p) 
+        public ActionResult MyHeaders() 
         {
 
-            p = (string)Session["WriterMail"];
+            string p = (string)Session["WriterMail"];
             var writeridinfo = wm.TGetList().Where(x => x.WriterMail == p).Select(x => x.WriterID).FirstOrDefault();
             var values = hm.TGetList().Where(x => x.WriterID == writeridinfo).ToList();
             return View(values);
@@ -105,7 +134,7 @@ namespace MvcProjectCamp.Controllers
 
         public ActionResult AllHeaders(int p=1)
         {
-            var values = hm.TGetList().ToPagedList(p, 4);
+            var values = hm.TGetList().ToPagedList(p, 5);
             return View(values);
         }
     }

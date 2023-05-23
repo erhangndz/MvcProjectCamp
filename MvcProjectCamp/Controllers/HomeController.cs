@@ -25,5 +25,10 @@ namespace MvcProjectCamp.Controllers
             var values = cm.TGetList().Where(x => x.HeaderID == id).ToList();
             return PartialView(values);
         }
+
+        public ActionResult HomePage()
+        {
+            return View();
+        }
     }
 }

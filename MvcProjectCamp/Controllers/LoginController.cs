@@ -17,7 +17,7 @@ namespace MvcProjectCamp.Controllers
     public class LoginController : Controller
     {
         AdminManager am = new AdminManager(new EfAdminDal());
-        WriterManager wm = new WriterManager(new EfWriterDal());
+        WriterLoginManager wl=new WriterLoginManager(new EfWriterDal());
         [HttpGet]
         public ActionResult Index()
         {
@@ -41,7 +41,7 @@ namespace MvcProjectCamp.Controllers
 
             }
 
-            return View();
+           
         }
 
         [HttpGet]
@@ -52,7 +52,8 @@ namespace MvcProjectCamp.Controllers
         [HttpPost]
         public ActionResult WriterLogin(Writer p)
         {
-            var values = wm.TGetList().FirstOrDefault(x => x.WriterMail == p.WriterMail && x.WriterPassword == p.WriterPassword);
+           
+            var values= wl.GetWriter(p.WriterMail, p.WriterPassword);
             if (values != null )
             {
                 FormsAuthentication.SetAuthCookie(values.WriterMail, false);
@@ -66,7 +67,7 @@ namespace MvcProjectCamp.Controllers
 
             }
 
-            return View();
+            
         }
 
         public ActionResult Logout()
