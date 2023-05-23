@@ -1,18 +1,17 @@
-﻿@model List<EntityLayer.Concrete.Header>
+﻿@model PagedList.IPagedList<EntityLayer.Concrete.Header>
+    @using PagedList
+@using PagedList.Mvc 
+
 @{
-    ViewBag.Title = "MyHeaders";
+    ViewBag.Title = "AllHeaders";
     Layout = "~/Views/Shared/_WriterLayout.cshtml";
-}
-
-
-@{
-
     string color = "";
     string colour = "";
     string status = "";
     string buttonname = "";
     string buttoncolor = "";
 }
+
 <br />
 <br />
 <div class="card">
@@ -46,9 +45,9 @@
                         Kategori
                     </th>
                    
-                    <th style="width: 30%">
+                   <th>
 
-                    </th>
+                   </th>
                 </tr>
             </thead>
             <tbody>
@@ -60,7 +59,10 @@
                     if (item.Category.CategoryName == "Kitap") { color = "secondary"; }
                     if (item.Category.CategoryName == "Sinema") { color = "danger"; }
                     if (item.Category.CategoryName == "Dizi") { color = "info"; }
-                 
+                    if (item.HeaderStatus == false) { colour = "danger"; }
+                    if (item.HeaderStatus == true) { colour = "success"; }
+                    if (item.HeaderStatus == false) { status = "Pasif"; }
+                    if (item.HeaderStatus == true) { status = "Aktif"; }
                     if (item.HeaderStatus == false) { buttoncolor = "success"; }
                     if (item.HeaderStatus == true) { buttoncolor = "danger"; }
                     if (item.HeaderStatus == false) { buttonname = "Aktif Yap"; }
@@ -93,30 +95,36 @@
                         <td class="project-state">
                             <span class="badge badge-@color">@item.Category.CategoryName</span>
                         </td>
-                       
+
                         <td class="project-actions text-right">
                             <a class="btn btn-primary btn-sm" href="/Home/HomeLayout/@item.HeaderID">
                                 <i class="fas fa-folder">
                                 </i>
-                                Yazılar
+                                İçerikler
                             </a>
-                            <a class="btn btn-info btn-sm" href="/WriterPanel/UpdateHeader/@item.HeaderID">
+
+                            <a class="btn btn-info btn-sm" href="/WriterPanelContent/AddContent/@item.HeaderID">
                                 <i class="fas fa-pencil-alt">
                                 </i>
-                                Düzenle
-                            </a>
-                            <a class="btn btn-@buttoncolor btn-sm" href="/WriterPanel/DeleteHeader/@item.HeaderID">
-                                <i class="fas fa-arrow-alt-circle-left">
-                                </i>
-                                @buttonname
+                                İçerik Yaz
                             </a>
                         </td>
+                        
+                           
+
+
+                        
                     </tr>
                 }
             </tbody>
         </table>
     </div>
-    <div>
-        <a href="/WriterPanel/NewHeader" class="btn btn-info">Yeni Başlık Ekle</a>
+    <div class="align-content-center">
+        @Html.PagedListPager((IPagedList)Model, p => Url.Action("AllHeaders", new { p }), new PagedListRenderOptions
+    {
+        LiElementClasses = new List<string>
+    {"page-link" }
+    })
     </div>
 </div>
+

@@ -69,6 +69,12 @@ namespace MvcProjectCamp.Controllers
             return View();
         }
 
+        public ActionResult Logout()
+        {
+            FormsAuthentication.SignOut();
+            Session.Abandon();
+            return RedirectToAction("HomeLayout", "Home");
+        }
 
     }
 }

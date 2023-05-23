@@ -1,5 +1,5 @@
 ﻿@model List<EntityLayer.Concrete.Content>
-<h2>Index</h2>
+
 
 <html>
 
@@ -18,17 +18,18 @@
                         {
                             <div class="timeline">
                                 <!-- timeline time label -->
-                                <div class="time-label">
-                                    <span class="bg-dark">@item.ContentDate.ToShortDateString()</span>
-                                </div>
+                               
                                 <!-- /.timeline-label -->
                                 <!-- timeline item -->
                                 <div>
                                     <i class="fas fa-comment bg-yellow"></i>
                                     <div class="timeline-item">
-                                        <h3 class="timeline-header"><a href="#">@item.Writer.WriterName @item.Writer.WriterSurname</a> </h3>
+                                        <h3 class="timeline-header"><a href="#"> @item.Header.HeaderName </a> </h3>
                                         <div class="timeline-body">
                                             @item.ContentText
+
+                                            <p class="text-lg-right"><b>@item.Writer.WriterName @item.Writer.WriterSurname </b></p>
+                                            <p class="text-lg-right"><b>@item.ContentDate.ToShortDateString() </b></p>
                                         </div>
                                     </div>
                                 </div>

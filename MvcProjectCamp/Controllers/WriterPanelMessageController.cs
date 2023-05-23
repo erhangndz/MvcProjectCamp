@@ -17,26 +17,26 @@ namespace MvcProjectCamp.Controllers
         WriterManager wm = new WriterManager(new EfWriterDal());
         MessageValidator messagevalidator = new MessageValidator();
 
-        public ActionResult Inbox(string p)
+        public ActionResult Inbox()
         {
-            p = (string)Session["WriterMail"];
+            string p = (string)Session["WriterMail"];
             var writermailinfo = wm.TGetList().Where(x => x.WriterMail == p).Select(x => x.WriterMail).FirstOrDefault();
             var values = mm.TGetList().OrderByDescending(x => x.MessageID).Where(x=>x.Receiver==writermailinfo).ToList();
             return View(values);
         }
 
-        public PartialViewResult WriterMessageMenu(string p)
+        public PartialViewResult WriterMessageMenu()
         {
-            p = (string)Session["WriterMail"];
+            string p = (string)Session["WriterMail"];
             var writermailinfo = wm.TGetList().Where(x => x.WriterMail == p).Select(x => x.WriterMail).FirstOrDefault();
             ViewBag.inboxnumber = mm.TGetList().Where(x=>x.Receiver==writermailinfo).Count(x => x.IsRead == false);
 
             return PartialView();
         }
 
-        public ActionResult Sentbox(string p)
+        public ActionResult Sentbox()
         {
-            p = (string)Session["WriterMail"];
+            string p = (string)Session["WriterMail"];
             var writermailinfo = wm.TGetList().Where(x => x.WriterMail == p).Select(x => x.WriterMail).FirstOrDefault();
             var values = mm.TGetList().OrderByDescending(x => x.MessageID).Where(x=>x.Sender==writermailinfo).ToList();
             return View(values);

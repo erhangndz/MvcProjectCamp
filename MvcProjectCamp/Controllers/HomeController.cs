@@ -8,6 +8,7 @@ using System.Web.Mvc;
 
 namespace MvcProjectCamp.Controllers
 {
+    [AllowAnonymous]
     public class HomeController : Controller
     {
         HeaderManager hm = new HeaderManager(new EfHeaderDal());
@@ -19,9 +20,9 @@ namespace MvcProjectCamp.Controllers
         }
 
 
-        public PartialViewResult Index()
+        public PartialViewResult Index(int id=0)
         {
-            var values= cm.TGetList();
+            var values = cm.TGetList().Where(x => x.HeaderID == id).ToList();
             return PartialView(values);
         }
     }

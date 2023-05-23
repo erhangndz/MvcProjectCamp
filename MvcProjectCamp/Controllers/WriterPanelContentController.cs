@@ -24,15 +24,17 @@ namespace MvcProjectCamp.Controllers
             return View(values);
         }
         [HttpGet]
-        public ActionResult AddContent()
+        public ActionResult AddContent(int id)
         {
+            var xid= hm.TGetByID(id);
+            
             List<SelectListItem> header = (from x in hm.TGetList()
                                              select new SelectListItem
                                              {
                                                  Text = x.HeaderName,
                                                  Value = x.HeaderID.ToString()
                                              }).ToList();
-            ViewBag.header = header;
+            ViewBag.header = xid.HeaderID;
             return View();
         }
 
@@ -46,6 +48,11 @@ namespace MvcProjectCamp.Controllers
             p.ContentStatus = true;
             cm.TInsert(p);
             return RedirectToAction("MyContent");
+        }
+
+        public ActionResult ToDoList()
+        {
+            return View();
         }
     }
 }
