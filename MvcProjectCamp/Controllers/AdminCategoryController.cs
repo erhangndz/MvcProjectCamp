@@ -54,7 +54,16 @@ namespace MvcProjectCamp.Controllers
         public ActionResult DeleteCategory(int id)
         {
             var values=cm.TGetByID(id);
-            cm.TDelete(values);
+            if (values.CategoryStatus == true)
+            {
+                values.CategoryStatus = false;
+            }
+            else if (values.CategoryStatus == false)
+            {
+                values.CategoryStatus = true;
+            }
+            
+            cm.TUpdate(values);
           
             return RedirectToAction("Index");
         }
@@ -68,7 +77,7 @@ namespace MvcProjectCamp.Controllers
         [HttpPost]
         public ActionResult UpdateCategory(Category p)
         {
-           
+           p.CategoryStatus = true;
             cm.TUpdate(p);
             
             return RedirectToAction("Index");

@@ -15,14 +15,17 @@
                     <h3 class="card-title">İletişim</h3>
 
                     <div class="card-tools">
+                        @using (Html.BeginForm("Index", "Contact", FormMethod.Post))
+                        {
                         <div class="input-group input-group-sm">
-                            <input type="text" class="form-control" placeholder="Mail Ara">
+                            @Html.TextBox("p")
                             <div class="input-group-append">
-                                <div class="btn btn-primary">
+                                <button class="btn btn-primary" type="submit">
                                     <i class="fas fa-search"></i>
-                                </div>
+                                </button>
                             </div>
                         </div>
+                        }
                     </div>
                     <!-- /.card-tools -->
                 </div>

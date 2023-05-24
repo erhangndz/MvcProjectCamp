@@ -19,6 +19,11 @@ namespace BusinessLayer.Concrete
             _contactDal = contactDal;
         }
 
+        public List<Contact> GetContactbySearch(string p)
+        {
+           return _contactDal.GetList().Where(x=>x.Message.Contains(p)).ToList();
+        }
+
         public void TDelete(Contact t)
         {
            _contactDal.Delete(t);

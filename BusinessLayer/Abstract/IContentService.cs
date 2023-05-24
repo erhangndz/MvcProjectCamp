@@ -9,5 +9,6 @@ namespace BusinessLayer.Abstract
 {
     public interface IContentService : IGenericService<Content>
     {
+         List<Content> GetListbySearch(string p);
     }
 }

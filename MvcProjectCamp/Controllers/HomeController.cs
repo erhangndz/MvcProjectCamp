@@ -30,5 +30,14 @@ namespace MvcProjectCamp.Controllers
         {
             return View();
         }
+
+        [HttpGet]
+        public PartialViewResult NavbarPartial()
+        {
+            return PartialView();
+        }
+        
+
+       
     }
 }

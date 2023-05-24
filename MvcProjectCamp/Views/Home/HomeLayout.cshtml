@@ -36,7 +36,7 @@ to get the desired effect
 -->
 <body class="hold-transition sidebar-mini">
     <div class="wrapper">
-
+       @Html.Action("NavbarPartial","Home")
         <!-- Main Sidebar Container -->
         <aside class="main-sidebar sidebar-dark-primary elevation-4">
             <!-- Brand Logo -->
@@ -50,7 +50,7 @@ to get the desired effect
             <div class="sidebar">
                 <!-- Sidebar user panel (optional) -->
                 <div class="user-panel mt-3 pb-3 mb-3 d-flex">
-                   
+
                     <div class="info">
                         <a href="#" class="d-block"> Son Başlıklar </a>
                     </div>
@@ -60,21 +60,21 @@ to get the desired effect
                 <nav class="mt-2">
                     <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
                         <!-- Add icons to the links using the .nav-icon class
-                        with font-awesome or any other icon font library -->
+                    with font-awesome or any other icon font library -->
 
-                      @foreach (var item in Model)
-                      {
+                        @foreach (var item in Model)
+                        {
 
-                        <li class="nav-item">
-                            <a href="/Home/HomeLayout/@item.HeaderID" class="nav-link">
-                                <i class="nav-icon fas fa-list-alt"></i>
-                                <p>
-                                    @item.HeaderName
+                            <li class="nav-item">
+                                <a href="/Home/HomeLayout/@item.HeaderID" class="nav-link">
+                                    <i class="nav-icon fas fa-list-alt"></i>
+                                    <p>
+                                        @item.HeaderName
 
-                                </p>
-                            </a>
-                        </li>
-                      }
+                                    </p>
+                                </a>
+                            </li>
+                        }
 
 
 
@@ -93,7 +93,7 @@ to get the desired effect
         <div class="content-wrapper">
 
             <!-- Main content -->
-        @Html.Action("Index","Home")
+            @Html.Action("Index", "Home")
             <!-- /.content -->
         </div>
         <!-- /.content-wrapper -->

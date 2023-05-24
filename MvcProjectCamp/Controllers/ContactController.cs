@@ -14,11 +14,19 @@ namespace MvcProjectCamp.Controllers
        ContactManager cm= new ContactManager(new EfContactDal());
         MessageManager mm = new MessageManager(new EfMessageDal());
         ContactValidator validator = new ContactValidator();
-        public ActionResult Index()
+        public ActionResult Index(string p)
         {
-            
-            var values= cm.TGetList();  
-            return View(values);
+            if (!string.IsNullOrEmpty(p))
+            {
+                var value = cm.GetContactbySearch(p);
+                return View(value);
+            }
+            else
+            {
+                var values = cm.TGetList();
+                return View(values);
+            }
+           
         }
 
         public ActionResult GetMessageDetails(int id)

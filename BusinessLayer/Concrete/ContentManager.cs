@@ -19,6 +19,11 @@ namespace BusinessLayer.Concrete
             _contentDal = contentDal;
         }
 
+        public List<Content> GetListbySearch(string p)
+        {
+           return _contentDal.GetList().Where(x=>x.ContentText.Contains(p)).ToList();
+        }
+
         public void TDelete(Content t)
         {
             _contentDal.Delete(t);

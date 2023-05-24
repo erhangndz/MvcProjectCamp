@@ -16,11 +16,29 @@ namespace MvcProjectCamp.Controllers
         WriterManager wm = new WriterManager(new EfWriterDal());
 
 
-        public ActionResult Index()
+        public ActionResult Index(string p)
         {
-            var values = hm.TGetList();
-            return View(values);
+            if (!string.IsNullOrEmpty(p))
+            {
+                var value = hm.GetHeaderbySearch(p);
+                return View(value);
+            }
+            else
+            {
+                var values= hm.TGetList();
+                return View(values);
+            }
+            
+           
         }
+
+        public ActionResult HeaderReport()
+        {
+            var values= hm.TGetList();
+            return View(values);    
+        }
+
+
         [HttpGet]
         public ActionResult AddHeader()
         {

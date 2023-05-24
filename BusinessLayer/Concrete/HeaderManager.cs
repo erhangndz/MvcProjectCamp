@@ -18,6 +18,11 @@ namespace BusinessLayer.Concrete
             _headerdal = headerdal;
         }
 
+        public List<Header> GetHeaderbySearch(string p)
+        {
+           return _headerdal.GetList().Where(x=>x.HeaderName.Contains(p)).ToList(); 
+        }
+
         public void TDelete(Header t)
         {
             _headerdal.Delete(t);

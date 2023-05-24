@@ -9,5 +9,6 @@ namespace BusinessLayer.Abstract
 {
     public interface IHeaderService : IGenericService<Header>
     {
+        List<Header> GetHeaderbySearch(string p);
     }
 }
