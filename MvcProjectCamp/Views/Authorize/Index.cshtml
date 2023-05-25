@@ -1,0 +1,63 @@
+﻿@model List<EntityLayer.Concrete.Admin>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    int count = 0;
+    string colour = "";
+    string status = "";
+    string buttonname = "";
+    string buttoncolor = "";
+}
+
+
+<div>
+    <br />
+    <br />
+    <h3 class="container card-header">Admin Listesi</h3>
+
+    <table class="table table-striped  container">
+        <tr>
+            <th>#</th>
+            <th>Kullanıcı Mail</th>
+            <th>Yetki</th>
+
+            <th>Durum</th>
+            <th>Yetkisini Değiştir</th>
+            <th>İşlem</th>
+
+
+        </tr>
+        @foreach (var item in Model)
+        {
+            count++;
+            if (item.AdminStatus == false) { colour = "danger"; }
+            if (item.AdminStatus == true) { colour = "success"; }
+            if (item.AdminStatus == false) { status = "Pasif"; }
+            if (item.AdminStatus == true) { status = "Aktif"; }
+            if (item.AdminStatus == false) { buttoncolor = "success"; }
+            if (item.AdminStatus == true) { buttoncolor = "danger"; }
+            if (item.AdminStatus == false) { buttonname = "Aktif Yap"; }
+            if (item.AdminStatus == true) { buttonname = "Pasif Yap"; }
+            <tr>
+                <th>@count</th>
+                <td>@item.AdminUsername</td>
+                <td>@item.AdminRole</td>
+
+                <td class="project-state">
+                    <span class="badge badge-@colour">@status</span>
+                </td>
+                <td><a href="/Authorize/UpdateAdmin/@item.AdminID" class="btn btn-outline-info"><i class="fas fa-edit"></i>Yetkisini Değiştir</a></td>
+                <td><a href="/Authorize/DeleteAdmin/@item.AdminID" class="btn btn-@buttoncolor"><i class="fas fa-arrow-alt-circle-left"></i>@buttonname</a></td>
+
+
+            </tr>
+        }
+
+
+    </table>
+
+</div>
+<div class="container">
+    <a href="/Authorize/AddAdmin/" class="btn btn-outline-info">Yeni Admin Ekle</a>
+</div>
+

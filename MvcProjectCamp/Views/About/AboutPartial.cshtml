@@ -18,9 +18,15 @@
                     <label>Görsel 2</label>
                     <input type="text" name="AboutImageURL2" class="form-control" />
                     <br />
-                    <button class="btn btn-info">Kaydet</button>
+                    <button class="btn btn-info" id="btnKaydet">Kaydet</button>
                 </div>
             </form>
         </div>
     </div>
 </div>
+<script>
+    $('#btnKaydet').click(function () {
+        swal("Tebrikler!", "Yeni Hakkımda Girişi Başarılı bir şekilde gerçekleşti", "success");
+    })
+</script>
+<script src="~/Scripts/jquery-3.4.1.js"></script>

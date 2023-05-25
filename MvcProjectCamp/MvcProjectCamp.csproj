@@ -155,6 +155,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AboutController.cs" />
     <Compile Include="Controllers\AdminCategoryController.cs" />
+    <Compile Include="Controllers\AuthorizeController.cs" />
     <Compile Include="Controllers\ChartController.cs" />
     <Compile Include="Controllers\ContactController.cs" />
     <Compile Include="Controllers\ContentController.cs" />
@@ -166,6 +167,7 @@
     <Compile Include="Controllers\MessageController.cs" />
     <Compile Include="Controllers\SkillController.cs" />
     <Compile Include="Controllers\StatisticsController.cs" />
+    <Compile Include="Controllers\TestController.cs" />
     <Compile Include="Controllers\WriterController.cs" />
     <Compile Include="Controllers\WriterPanelContentController.cs" />
     <Compile Include="Controllers\WriterPanelController.cs" />
@@ -2683,6 +2685,10 @@
     <Content Include="Views\Home\NavbarPartial.cshtml" />
     <Content Include="Views\Chart\Index.cshtml" />
     <Content Include="Views\Header\HeaderReport.cshtml" />
+    <Content Include="Views\Test\SweetAlert.cshtml" />
+    <Content Include="Views\Authorize\Index.cshtml" />
+    <Content Include="Views\Authorize\AddAdmin.cshtml" />
+    <Content Include="Views\Authorize\UpdateAdmin.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

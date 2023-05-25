@@ -137,6 +137,10 @@
     <Compile Include="Migrations\202305211212389_isread_added_to_messages_and_contacts.designer.cs">
       <DependentUpon>202305211212389_isread_added_to_messages_and_contacts.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202305251318128_add_admin_status.cs" />
+    <Compile Include="Migrations\202305251318128_add_admin_status.designer.cs">
+      <DependentUpon>202305251318128_add_admin_status.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -186,6 +190,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202305211212389_isread_added_to_messages_and_contacts.resx">
       <DependentUpon>202305211212389_isread_added_to_messages_and_contacts.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202305251318128_add_admin_status.resx">
+      <DependentUpon>202305251318128_add_admin_status.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -7,11 +7,18 @@
 <h3 class="container">Başlığa Yazı Ekleme Sayfası</h3>
 <form class="container" method="post">
     <label>Yazı İçeriği</label>
-    @Html.TextAreaFor(x => x.ContentText,20,1, new { @class = "form-control" })
+    @Html.TextAreaFor(x => x.ContentText, 20, 1, new { @class = "form-control" })
     <br />
-  <input type="hidden" name="HeaderID" value="@ViewBag.header" />
+    <input type="hidden" name="HeaderID" value="@ViewBag.header" />
     <br />
-    <button class="btn btn-outline-info">İçerik Ekle</button>
+    <button class="btn btn-outline-info" id="save">İçerik Ekle</button>
 </form>
 
 
+<script>
+    $('#save').click(function () {
+        swal("Tebrikler!", "Yeni İçerik Başarılı bir şekilde eklendi.", "success");
+    })
+</script>
+
+<script src="~/Scripts/jquery-3.4.1.js"></script>
